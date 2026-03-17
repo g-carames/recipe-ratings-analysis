@@ -146,8 +146,22 @@ Overall, these results suggest that rating missingness may depend on some observ
 ---
 
 ## Hypothesis Testing
-Describe the hypothesis test you ran.  
-Explain the null hypothesis, alternative hypothesis, and what you concluded.
+
+To investigate whether calorie content is associated with recipe ratings, I conducted a permutation test comparing the average ratings of high-calorie and low-calorie recipes.
+
+**Null Hypothesis (H₀):**  
+There is no difference in the average rating between high-calorie and low-calorie recipes.
+
+**Alternative Hypothesis (H₁):**  
+There is a difference in the average rating between high-calorie and low-calorie recipes.
+
+To define the groups, recipes were split into **high-calorie** and **low-calorie** categories based on the median calorie value calculated from the dataset. The test statistic used was the **difference in mean average rating** between the two calorie groups. The initial observed difference was approximately **0.0083**
+
+A permutation test was then conducted with **1000 permutations** by randomly shuffling the calorie group labels and recalculating the difference in mean ratings. This generated a permutation distribution representing the differences we would expect if calorie group and rating were unrelated (test under the null hypothesis).
+
+The resulting **p-value was approximately 0.074**. Using a significance level of **α = 0.05**, this p-value is not small enough to reject the null hypothesis.
+
+Therefore, there is **not sufficient evidence to conclude that high-calorie and low-calorie recipes have different average ratings**. While there may be a small difference, the results of this test suggest that calorie content alone does not strongly influence how users rate recipes.
 
 ---
 

@@ -215,14 +215,81 @@ An accuracy of approximately 0.73 indicates that the model correctly classifies 
 ---
 
 ## Final Model
-Explain how you improved your model.
 
-Mention:
-- new features
-- model tuning
-- final performance
+To see if accuracy could be improved, I engineered additional features including **`calories_per_minute`** and **`log_minutes`**.
+
+### Features Used
+
+| Feature | Type | Description |
+|-------|------|------|
+| `calories` | Quantitative | Total calories in the recipe |
+| `minutes` | Quantitative | Time required to prepare the recipe |
+| `steps_count` | Quantitative | Number of steps in the recipe instructions |
+| `log_minutes` | Quantitative | Log-transformed preparation time |
+
+The feature **`calories_per_minute`** was created by dividing calories by minutes and replacing any null values with zero. This feature could potentially imply a measure for the effort that goes into a recipe. Since higher calories often correlate to more ingredients and therefore more time or difficult in the recipe. This is then measured in tangent with the number of minutes.
+
+The feature **`log_minutes`** was created using a log transformation of preparation time. Applying a log transformation helps stabilize the distribution so the model can better capture differences.
+
+All features are **quantitative**, so no categorical encoding was required.
+
+### Final Model and Hyperparameters
+
+The final model uses **logistic regression**, the same algorithm as the baseline model. To improve model performance, I performed **hyperparameter tuning using GridSearchCV with 5-fold cross-validation**.
+
+The hyperparameter tuned was the regularization strength **C** ($C = \frac{1}{\lambda}$), with the following values tested: 0.01, 0.1, 1, 10  
+
+### Model Performance
+
+The final model achieved an **accuracy of approximately 0.73** (rounded to the nearest hundreth place) on the test set.
+
+### Comparison to the Baseline Model
+
+The baseline model also achieved an accuracy of approximately **0.73**, so unfortunately there was little to no impovement on the model's accuracy. Although the accuracy did not improve much, the final model provides a slightly richer representation of the recipe characteristics than the baseline model did.
 
 ---
 
 ## Fairness Analysis
-Discuss whether the model performs differently across groups (for example different recipe categories or cooking times).
+
+To evaluate whether the model behaves differently across types of recipes, I conducted a fairness analysis comparing **short recipes** and **long recipes**.
+
+### Groups
+
+Recipes were divided into two groups based on the **median preparation time (`minutes`)**:
+
+- **Group X (Short Recipes):** preparation time < median  
+- **Group Y (Long Recipes):** preparation time >= median
+
+### Evaluation Metric
+
+The fairness metric used was **precision**. Precision measures the proportion of recipes predicted to be high-rated that are in fact high-rated (only looking at the positive class of predictions).
+
+### Hypotheses
+
+**Null Hypothesis (H₀):**  
+The precision of the model is the same for short recipes and long recipes.
+
+**Alternative Hypothesis (H₁):**  
+The precision of the model differs between short recipes and long recipes.
+
+### Test Statistic
+
+The test statistic used was the **difference in precision between the two groups**:
+
+\[
+\text{precision(short)} - \text{precision(long)}
+\]
+
+The observed difference in precision was approximately **0.035**.
+
+### Significance Level
+
+The significance level used for the test was **α = 0.05**.
+
+### Permutation Test
+
+To determine whether the observed difference could occur by chance, a **permutation test** was used to evaluate chances under the null hypothesis. 
+
+### Conclusion
+
+The observed difference in precision between short and long recipes is very large (approximately **0.1**). Therefore, the model’s predictive performance is fairly similar across the two groups (short and long recipes). Based on this result, using an alpha level of 0.05, there is **no strong evidence that the model behaves unfairly with respect to recipe preparation time**.

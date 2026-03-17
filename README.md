@@ -236,7 +236,7 @@ All features are **quantitative**, so no categorical encoding was required.
 
 The final model uses **logistic regression**, the same algorithm as the baseline model. To improve model performance, I performed **hyperparameter tuning using GridSearchCV with 5-fold cross-validation**.
 
-The hyperparameter tuned was the regularization strength **C** ( $C = \frac{1}{\lambda}$ ), with the following values tested: 0.01, 0.1, 1, 10  
+The hyperparameter tuned was the regularization strength **C** (one divided by lambda), with the following values tested: 0.01, 0.1, 1, 10  
 
 ### Model Performance
 

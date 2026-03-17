@@ -1,4 +1,4 @@
-# Recipe Ratings Analysis
+<h1 style="text-align:center; font-size:70px;">Recipe Ratings Analysis</h1>
 Giselle Carames  
 DSC 80 Final Project
 

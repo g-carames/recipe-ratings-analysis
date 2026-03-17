@@ -87,23 +87,23 @@ This heatmap shows the correlations between the nutritional variables extracted 
 
 Before generating this graph, the IQR of the calories distribution was calculated in order to generate new data without the outliers skewing the values. 
 
-![Calorie Distribution](Calorie Distribution (outliers dropped).png)
+![Calorie Distribution](Calorie_Distribution_(outliers_dropped).png)
 
 ### Average Ratings Distribution
 
 Here the general distribution of average ratings can be viewed to take into consideration when any skews are viewed later on as ratings will become a central variable in this analysis. 
 
-![Average Ratings Distribution](Average Ratings Distribution.png)
+![Average Ratings Distribution](Average_Ratings_Distribution.png)
 
 ### Bivariate Data Analysis
 
 Before generating this graph, the IQR of the calories distribution was calculated in order to generate new data without the outliers skewing the values. 
 
-![Calorie Distribution](Calories vs Average Rating (outliers dropped).png)
+![Calorie Distribution](Calories_vs_Average_Rating_(outliers_dropped).png)
 
 This scatter plot shows the relationship between recipe calorie content and average rating after removing extreme calorie outliers. Ratings appear to remain relatively high across the full range of calorie values, and there is no clear linear trend. This suggests that calorie content alone does not strongly determine how highly a recipe is rated.
 
-![Calorie Distribution](Distribution of Average Ratings (high vs low calorie recipes).png)
+![Calorie Distribution](Distribution_of_Average_Ratings_(high_vs_low_calorie_recipes).png)
 
 This histogram compares the distribution of average ratings for high-calorie and low-calorie recipes. Both groups show very similar rating patterns, with most recipes receiving ratings between 4 and 5. This indicates that recipes with higher calorie content do not receive systematically higher or lower ratings than lower-calorie recipes. Similarly to the previous graph, there appears to be no strong correlation.
 

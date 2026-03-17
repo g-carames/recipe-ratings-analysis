@@ -166,7 +166,6 @@ Therefore, there is **not sufficient evidence to conclude that high-calorie and 
 ---
 
 ## Framing a Prediction Problem
-## Step 5: Framing a Prediction Problem
 
 **Prediction Problem:**  
 Predict whether a recipe will receive a high average rating based on characteristics of the recipe.
@@ -189,13 +188,29 @@ Accuracy can be considered appropriate because the dataset does not appear to ha
 ---
 
 ## Baseline Model
-Describe the first model you built and how it performed.
 
-Example:
-- model type
-- features used
-- evaluation metric
-- baseline accuracy
+For the baseline model, I trained a **logistic regression classifier** to predict whether a recipe receives a high rating.
+
+### Features Used
+The model uses two features:
+
+| Feature | Type | Description |
+|------|------|------|
+| `calories` | Quantitative | Total calories in the recipe |
+| `minutes` | Quantitative | Time required to prepare the recipe |
+
+Since both features are **quantitative numeric variables**, no encoding was required at this point.
+
+### Response Variable
+The response variable is **`high_rating`**, a binary variable indicating whether a recipe's average rating is **greater than or equal to 4.5**.
+
+### Model
+A **logistic regression model** was was used to train features. The dataset was split into **training and testing sets**, with **70% used for training and 30% used for testing** in order to evaluate the model on unseen data.
+
+In regards to the model performance, it achieved an **accuracy of approximately 0.73** on the test set (rounded to the nearest 100th place decimal).
+
+### Model Analysis
+An accuracy of approximately 0.73 indicates that the model correctly classifies about **73% of recipes** as high-rated or not high-rated. Since the model only uses two basic features, its predictive ability is limited, however it is a good baseline. More feature engineering could likely improve the performance of the model.
 
 ---
 

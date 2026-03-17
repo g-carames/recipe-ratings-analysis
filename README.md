@@ -166,13 +166,25 @@ Therefore, there is **not sufficient evidence to conclude that high-calorie and 
 ---
 
 ## Framing a Prediction Problem
-Explain what you are predicting.  
-Example: predicting whether a recipe receives a **high rating**.
+## Step 5: Framing a Prediction Problem
 
-Mention:
-- response variable
-- features used
-- evaluation metric
+**Prediction Problem:**  
+Predict whether a recipe will receive a high average rating based on characteristics of the recipe.
+
+**Prediction Type:**  
+Binary classification.
+
+**Response Variable:**  
+`high_rating`, a binary variable indicating whether a recipe’s average rating is greater than or equal to **4.5**.
+
+**Time of Prediction:**  
+At the time of prediction, information such as **calories, preparation time (minutes), and nutritional values** (protein_pdv, carbs_pdv, total_fat_pdv) are already known because they are part of the recipe information, therefore they can be used to train the model without data leakage.
+
+**Evaluation Metric:**  
+The model is evaluated using **accuracy**, which measures the proportion of correctly classified recipes.
+
+**Justification for Metric:**  
+Accuracy can be considered appropriate because the dataset does not appear to have a severe class imbalance between high-rated and lower-rated recipes. 
 
 ---
 

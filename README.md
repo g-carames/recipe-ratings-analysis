@@ -119,12 +119,29 @@ This histogram compares the distribution of average ratings for high-calorie and
 | (1000, 1500] | NaN | NaN | 0 |
 | (1500, 3000] | NaN | NaN | 0 |
 
-The grouped table summary supports the plot's implication that there is likely no meaningful relationship between calories and ratings. This table specifically analyzed mean and median rating.
+The grouped table summary supports the plot's implication that there is likely no meaningful relationship between calories and ratings (Specifically analyzing mean and median rating).
 
 ---
 
 ## Assessment of Missingness
-Explain whether any variables had missing values and whether the missingness appeared random or not.
+
+To investigate whether rating missingness depends on calorie content, I performed a permutation test comparing the mean calories of recipes with missing ratings and those with observed ratings. The test statistic was defined as the difference in mean calories between the two groups.
+
+The histogram below shows the permutation distribution of this statistic under the null hypothesis that rating missingness is independent of calories. After performing 1000 permutations, the resulting p-value was approximately **0.0**.
+
+Because the p-value is extremely small (< 0.05), we reject the null hypothesis. This suggests that rating missingness is related to calorie content, indicating that the probability of a rating being missing may be dependent on the number of calories found in the recipe.
+
+![Permutation Distribution - Calories vs Rating](Permutation_Distribution-Calories_vs_Rating_Missingness.png)
+
+A similar permutation test was conducted to examine whether rating missingness depends on specifically protein content. Recall that the ingredients list was previously broken down to include more components, including protein. The test compared the mean protein values for recipes with missing ratings and those with observed ratings.
+
+The permutation distribution shown below represents the distribution of the test statistic under the null hypothesis that rating missingness is independent of protein content. The resulting p-value was approximately **0.201**.
+
+Because this p-value is relatively large (> 0.05), we fail to reject the null hypothesis. This suggests there is little evidence that rating missingness depends on the protein content of the recipe.
+
+![Permutation Distribution - Protein vs Rating](Permutation_Distribution-Protein_vs_Rating_Missingness.png)
+
+Overall, these results suggest that rating missingness may depend on some observed variables (calorie content) but not others (protein levels). This indicates that the missingness mechanism may be **Missing At Random (MAR)** with respect to certain nutritional features such as protein.
 
 ---
 

@@ -120,6 +120,7 @@ This histogram compares the distribution of average ratings for high-calorie and
 | (1500, 3000] | NaN | NaN | 0 |
 
 The grouped table summary supports the plot's implication that there is likely no meaningful relationship between calories and ratings. This table specifically analyzed mean and median rating.
+
 ---
 
 ## Assessment of Missingness

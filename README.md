@@ -134,7 +134,7 @@ Because the p-value is extremely small (< 0.05), we reject the null hypothesis. 
 
 A similar permutation test was conducted to examine whether rating missingness depends on specifically protein content. Recall that the ingredients list was previously broken down to include more components, including protein. The test compared the mean protein values for recipes with missing ratings and those with observed ratings.
 
-The permutation distribution shown below represents the distribution of the test statistic under the null hypothesis that rating missingness is independent of protein content. The resulting p-value was approximately **0.201**.
+The permutation distribution shown below represents the distribution of the test statistic under the null hypothesis that rating missingness is independent of protein content. The resulting p-value was approximately **0.213**.
 
 Because this p-value is relatively large (> 0.05), we fail to reject the null hypothesis. This suggests there is little evidence that rating missingness depends on the protein content of the recipe.
 
@@ -158,7 +158,7 @@ To define the groups, recipes were split into **high-calorie** and **low-calorie
 
 A permutation test was then conducted with **1000 permutations** by randomly shuffling the calorie group labels and recalculating the difference in mean ratings. This generated a permutation distribution representing the differences we would expect if calorie group and rating were unrelated (test under the null hypothesis).
 
-The resulting **p-value was approximately 0.074**. Using a significance level of **α = 0.05**, this p-value is not small enough to reject the null hypothesis.
+The resulting **p-value was approximately 0.065**. Using a significance level of **α = 0.05**, this p-value is not small enough to reject the null hypothesis.
 
 Therefore, there is **not sufficient evidence to conclude that high-calorie and low-calorie recipes have different average ratings**. While there may be a small difference, the results of this test suggest that calorie content alone does not strongly influence how users rate recipes.
 
@@ -236,7 +236,7 @@ All features are **quantitative**, so no categorical encoding was required.
 
 The final model uses **logistic regression**, the same algorithm as the baseline model. To improve model performance, I performed **hyperparameter tuning using GridSearchCV with 5-fold cross-validation**.
 
-The hyperparameter tuned was the regularization strength **C** ($C = \frac{1}{\lambda}$), with the following values tested: 0.01, 0.1, 1, 10  
+The hyperparameter tuned was the regularization strength **C** $C = \frac{1}{\lambda}$, with the following values tested: 0.01, 0.1, 1, 10  
 
 ### Model Performance
 
@@ -277,7 +277,7 @@ The test statistic used was the **difference in precision between the two groups
 
 precision(short) - precision(long)
 
-The observed difference in precision was approximately **0.035**.
+The observed difference in precision was approximately **0.038**.
 
 ### Significance Level
 
@@ -289,4 +289,4 @@ To determine whether the observed difference could occur by chance, a **permutat
 
 ### Fairness Analysis Conclusion
 
-The observed difference in precision between short and long recipes is very large (approximately **0.1**). Therefore, the model’s predictive performance is fairly similar across the two groups (short and long recipes). Based on this result, using an alpha level of 0.05, there is **no strong evidence that the model behaves unfairly with respect to recipe preparation time**.
+The observed difference in precision between short and long recipes is very large (approximately **0.928**). Therefore, the model’s predictive performance is fairly similar across the two groups (short and long recipes). Based on this result, using an alpha level of 0.05, there is **no strong evidence that the model behaves unfairly with respect to recipe preparation time**.

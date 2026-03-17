@@ -290,6 +290,6 @@ The significance level used for the test was **α = 0.05**.
 
 To determine whether the observed difference could occur by chance, a **permutation test** was used to evaluate chances under the null hypothesis. 
 
-### Conclusion
+### Fairness Analysis Conclusion
 
 The observed difference in precision between short and long recipes is very large (approximately **0.1**). Therefore, the model’s predictive performance is fairly similar across the two groups (short and long recipes). Based on this result, using an alpha level of 0.05, there is **no strong evidence that the model behaves unfairly with respect to recipe preparation time**.

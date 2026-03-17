@@ -275,9 +275,7 @@ The precision of the model differs between short recipes and long recipes.
 
 The test statistic used was the **difference in precision between the two groups**:
 
-\[
-\text{precision(short)} - \text{precision(long)}
-\]
+precision(short) - precision(long)
 
 The observed difference in precision was approximately **0.035**.
 
